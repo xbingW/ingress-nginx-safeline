@@ -1,5 +1,5 @@
 package = "ingress-nginx-safeline"
-version = "1.0.0-1"
+version = "1.0.2-1"
 source = {
    url = "git://github.com/xbingW/ingress-nginx-safeline.git"
 }
