@@ -50,7 +50,7 @@ function _M.rewrite()
     if result then
         if result.action == t1k_constants.ACTION_BLOCKED then
             local msg = fmt(blocked_message, result.status, result.event_id)
-            ngx.log(ngx.DEBUG, "blocked by safeline: ",msg)
+            ngx.log(ngx.DEBUG, "blocked by safeline waf: ",msg)
             ngx.status = tonumber(result.status,10)
             ngx.say(msg)
             return ngx.exit(ngx.HTTP_OK)
