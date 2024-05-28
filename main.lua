@@ -38,7 +38,6 @@ end
 
 function _M.rewrite()
     local t = get_conf()
-    ngx.log(ngx.DEBUG, "safeline host: ", t.host, " mode: ", t.mode)
     if not t.host then
         ngx.log(ngx.ERR, "safeline host is required")
         return
@@ -52,8 +51,9 @@ function _M.rewrite()
         if result.action == t1k_constants.ACTION_BLOCKED then
             local msg = fmt(blocked_message, result.status, result.event_id)
             ngx.log(ngx.DEBUG, "blocked by safeline: ",msg)
+            ngx.status = tonumber(result.status,10)
             ngx.say(msg)
-            return ngx.exit(result.status)
+            return ngx.exit(ngx.HTTP_OK)
         end
     end
 end
