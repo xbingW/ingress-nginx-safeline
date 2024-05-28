@@ -15,6 +15,6 @@ dependencies = {
 build = {
    type = "builtin",
    modules = {
-       ["safeline.main"] = "safeline/main.lua"
+       ["safeline.main"] = "lib/safeline/main.lua"
    }
 }
